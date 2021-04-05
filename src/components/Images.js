@@ -9,7 +9,9 @@ const Images = () => {
 
   useEffect(() => {
     getImages(perPage).then(response => {
-      setImages(response);
+      if (response) {
+        setImages(response);
+      }
     })
   }, [perPage])
 

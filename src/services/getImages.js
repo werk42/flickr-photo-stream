@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export const getImages = async (per_page) => {
+export const getImages = (per_page) => {
   const API_KEY = process.env.REACT_APP_FLICKR_KEY;
   const url = 'https://api.flickr.com/services/rest/';
-  const result = await axios.get(url, {
+  const result = axios.get(url, {
     params: {
       method: 'flickr.interestingness.getList',
       extras: 'url_n, tags, owner_name, description',

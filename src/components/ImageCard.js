@@ -13,8 +13,12 @@ const ImageCard = ({pic}) => {
       <div className='card-body'>
         <h4 className='card-title'><a href={photo} target='_blank' rel='noreferrer'>{pic.title}</a></h4>
         <p className='card-title'><b>By:</b> <a href={authorPage} target='_blank' rel='noreferrer'>{pic.ownername}</a></p>
-        <p className="card-text"><b>Description: </b>{trimString(`${pic.description?._content}`, 150)}</p>
-        <p className="card-text"><b>Tags: </b>{trimString(`${pic.tags}`, 150)}</p>
+        {
+          pic.description?._content ? <p className="card-text"><b>Description: </b>{trimString(`${pic.description?._content}`, 150)}</p> : ''
+        }
+        {
+          pic.tags ? <p className="card-text"><b>Tags: </b>{trimString(`${pic.tags}`, 150)}</p> : ''
+        }
       </div>
     </div>
   )
