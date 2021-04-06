@@ -9,7 +9,7 @@ const Images = () => {
   useEffect(() => {
     getImages(page).then(response => {
       if (response) {
-        setImages(response);
+        setImages([...images, ...response])
       }
     })
   }, [page])

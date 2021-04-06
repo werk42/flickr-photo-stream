@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { per_page } from '../lib/constants';
+import { per_page, API_KEY } from '../lib/constants';
 
 export const getImages = (page) => {
-  const API_KEY = process.env.REACT_APP_FLICKR_KEY;
   const url = 'https://api.flickr.com/services/rest/';
   const result = axios.get(url, {
     params: {
