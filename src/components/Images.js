@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { getImages } from '../services/getImages';
-import { per_page } from '../lib/constants';
 import ImageCard from './ImageCard';
 
 const Images = () => {
   const [images, setImages] = useState([]);
-  const [perPage, setPerPage] = useState(per_page);
+  const [page, setPage] = useState(1)
 
   useEffect(() => {
-    getImages(perPage).then(response => {
+    getImages(page).then(response => {
       if (response) {
         setImages(response);
       }
     })
-  }, [perPage])
+  }, [page])
 
   const loadMore = () => {
-    setPerPage(perPage + 4)
+    setPage(page + 1)
   }
 
   return (
