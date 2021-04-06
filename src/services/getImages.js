@@ -3,7 +3,7 @@ import { per_page, API_KEY } from '../lib/constants';
 
 export const getImages = (page) => {
   const url = 'https://api.flickr.com/services/rest/';
-  const result = axios.get(url, {
+  return axios.get(url, {
     params: {
       method: 'flickr.interestingness.getList',
       extras: 'url_n, tags, owner_name, description',
@@ -14,5 +14,4 @@ export const getImages = (page) => {
       per_page: `${per_page}`
     }
   }).then(response => response.data.photos.photo);
-  return result
 }
